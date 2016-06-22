@@ -22,21 +22,10 @@
 </head>
 <body>
 
-<?php
-/*
-	if(isset($_REQUEST['authcode']))
-	{
-		session_start();
-
-		if(strtolower($_REQUEST['authcode']) != strtolower($_SESSION['authcode']))
-		{
-			echo '<font color = "#CC0000">wrong</font>';
-		}
-	}
-*/
-?>
-
 <div class = "container">
+<form
+	method = "POST"
+	action = "verify.php">
 	<table class = "table" border = "1">
 		<tr>
 			<th>Username</th>
@@ -44,7 +33,7 @@
 		</tr>
 		<tr>
 			<th>Password</th>
-			<td align = "center"><input type = "text" name = "password" value = ""/></td>
+			<td align = "center"><input type = "password" name = "password" value = ""/></td>
 		</tr>
 		<tr>
 			<th rowspan = "3">AuthCode</th>
@@ -63,12 +52,13 @@
 		</tr>
 		<tr>
 			<td align = "center" colspan = "2">
-				<input type = "button" value = "Submit" onclick="">
+				<input type = "button" value = "Submit">
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<input type = "button" value = "Register" onclick="">
+				<input type = "button" value = "Register">
 			</td>
 		</tr>
 	</table>
+</form>
 </div>
 
 </body>
