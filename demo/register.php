@@ -24,7 +24,7 @@
 <div class = "container">
 <form
 	method = "post"
-	action = "">
+	action = "checkRegister.php">
 	<table class = "table" border = "1">
 		<tr>
 			<th>username</th>
@@ -55,31 +55,6 @@
 			<th>password again</th>
 			<td>
 				<input type = "password" name = "password2"/>
-			</td>
-		</tr>
-		<tr>
-			<th>question</th>
-			<td>
-				<input type = "text" name = "question" placeholder="question"/>
-			</td>
-		</tr>
-		<tr>
-			<th>answer</th>
-			<td>
-				<input type = "text" name = "answer" placeholder="answer"/>
-			</td>
-		</tr>
-		<tr>
-			<th>email</th>
-			<td>
-				<input type = "text" name = "email" placeholder = "email"/>
-			</td>
-		</tr>
-		<tr>
-			<th>role</th>
-			<td align = "center">
-				user<input type = "radio" name = "role" value = "0"/>
-				admin<input type = "radio" name = "role" value = "1"/>
 			</td>
 		</tr>
 		<tr>

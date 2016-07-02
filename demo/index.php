@@ -29,15 +29,15 @@
 	<table class = "table" border = "1">
 		<tr>
 			<th>Username</th>
-			<td align = "center"><input type = "text" name = "username" value = "username"/></td>
+			<td align = "center"><input type = "text" name = "username" placeholder = "username"/></td>
 		</tr>
 		<tr>
 			<th>Password</th>
-			<td align = "center"><input type = "pwd" name = "password" value = "password"/></td>
+			<td align = "center"><input type = "pwd" name = "password" placeholder = "password"/></td>
 		</tr>
 		<tr>
 			<th rowspan = "3">AuthCode</th>
-			<td align = "center"><input type = "text" name = "authcode" value = "authcode"/></td>
+			<td align = "center"><input type = "text" name = "authcode" placeholder = "authcode"/></td>
 		</tr>
 		<tr>
 			<td align = "center">

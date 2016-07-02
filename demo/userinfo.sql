@@ -1,16 +1,16 @@
 create table userinfo
 (
-	userid varchar(20) NOT NULL primary key,
+	userid varchar(40) NOT NULL primary key,
 	username varchar(20) NOT NULL ,
-	gender set('male','female','secret') not null ,
-	birthdate DATE NOT NULL  default '1949-01-01',
+	gender set('male','female','secret') not null default 'secret',
+	birthdate DATE NOT NULL default '1949-01-01',
 	pwd varchar(20) not null,
-	question varchar(30) not null ,
-	answer varchar(30) not null,
-	email varchar(50) not null ,
+	question varchar(30) ,
+	answer varchar(30) ,
+	email varchar(50) ,
 	photopath varchar(50) ,
 	intro varchar(300) ,
 	role enum('0','1') not null default '0' ,
-	regtime datetime not null
+	regtime timestamp not null DEFAULT CURRENT_TIMESTAMP() 
 )
 ;
