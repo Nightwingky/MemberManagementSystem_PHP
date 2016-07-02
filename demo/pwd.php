@@ -91,9 +91,8 @@
 		.container
 		{
 			margin:10px auto;
-			border:1px solid black;
-			width:1000px;
-			height:1000px;
+			width:260px;
+			height:auto;
 		}
 	</style>
 
@@ -154,8 +153,31 @@
 	</div>
 </div>
 
-<div class = "container">
-</div>
+<form 
+	action = "rePwd.php"
+	method = "post">
+	<div class = "container">
+		<table border = "1">
+			<tr>
+				<th>Old Password</th>
+				<td><input type = "password" name = "oldPwd"/></td>
+			</tr>
+			<tr>
+				<th>New Password</th>
+				<td><input type = "password" name = "newPwd1"/></td>
+			</tr>
+			<tr>
+				<th>Retype</th>
+				<td><input type = "password" name = "newPwd2"/></td>
+			</tr>
+			<tr>
+				<td colspan = "2" align = "center">
+					<input type = "submit" value = "Reset Password" name = "submit">
+				</td>
+			</tr>
+		</table>
+	</div>
+</form>
 
 </body>
 </html>
