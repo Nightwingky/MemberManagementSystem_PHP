@@ -91,9 +91,15 @@
 		.container
 		{
 			margin:10px auto;
-			border:1px solid black;
 			width:1000px;
-			height:1000px;
+			height:auto;
+		}
+
+		.tableContainer
+		{
+			width:380px;
+			height:auto;
+			margin:10px auto;
 		}
 	</style>
 
@@ -155,6 +161,71 @@
 </div>
 
 <div class = "container">
+	<div class = "tableContainer">
+	<?php
+		$link = mysqli_connect('localhost', 'root', '666796');
+		$db_selected = mysqli_select_db($link, 'php');
+		mysqli_query($link, "set names 'utf8'");
+
+		$sqlStr = "select userid, username, gender, birthdate, email, regtime, question, answer, role from userinfo where username = '".$_SESSION["username"]."'";
+		$result = mysqli_query($link, $sqlStr);
+
+		$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+		echo "<table border = '1'>";
+		echo "<tr>";
+		echo "<th>userid</th>";
+		echo "<td align = 'center'>".$row['userid']."</td>";
+		echo "</tr>";
+		echo "<tr>";
+		echo "<th>username</th>";
+		echo "<td align = 'center'>".$row['username']."</td>";
+		echo "</tr>";
+		echo "<tr>";
+		echo "<th>gender</th>";
+		echo "<td align = 'center'>".$row['gender']."</td>";
+		echo "</tr>";
+		echo "<tr>";
+		echo "<th>birthdate</th>";
+		echo "<td align = 'center'>".$row['birthdate']."</td>";
+		echo "</tr>";
+		echo "<tr>";
+		echo "<th>email</th>";
+		echo "<td align = 'center'>".$row['email']."</td>";
+		echo "</tr>";
+		echo "<tr>";
+		echo "<th>regtime</th>";
+		echo "<td align = 'center'>".$row['regtime']."</td>";
+		echo "</tr>";
+		echo "<tr>";
+		echo "<th>question</th>";
+		echo "<td align = 'center'>".$row['question']."</td>";
+		echo "</tr>";
+		echo "<tr>";
+		echo "<th>answer</th>";
+		echo "<td align = 'center'>".$row['answer']."</td>";
+		echo "</tr>";
+		echo "<tr>";
+		echo "<th>role</th>";
+		if($row['role'] == 0)
+		{
+			echo "<td align = 'center'>user</td>";
+		}
+		else
+		{
+			echo "<td align = 'center'>adminstrator</td>";
+		}
+		echo "</tr>";
+		echo "<tr>";
+		echo "<td colspan = '2' align = 'center'>";
+		echo "<a href='changeInfo.php?username=".$_SESSION["username"]."'>ChangeInfo</a>";
+		echo "</td>";
+		echo "</tr>";
+		echo "</table>";
+
+		mysqli_close($link);
+	?>
+	</div>
 </div>
 
 </body>
