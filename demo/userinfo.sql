@@ -1,6 +1,6 @@
 create table userinfo
 (
-	userid int unsigned NOT NULL auto_increment primary key,
+	userid varchar(20) NOT NULL primary key,
 	username varchar(20) NOT NULL ,
 	gender set('male','female','secret') not null ,
 	birthdate DATE NOT NULL  default '1949-01-01',

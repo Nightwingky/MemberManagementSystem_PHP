@@ -24,20 +24,20 @@
 
 <div class = "container">
 <form
-	method = "POST"
+	method = "post"
 	action = "verify.php">
 	<table class = "table" border = "1">
 		<tr>
 			<th>Username</th>
-			<td align = "center"><input type = "text" name = "username" value = ""/></td>
+			<td align = "center"><input type = "text" name = "username" value = "username"/></td>
 		</tr>
 		<tr>
 			<th>Password</th>
-			<td align = "center"><input type = "password" name = "password" value = ""/></td>
+			<td align = "center"><input type = "pwd" name = "password" value = "password"/></td>
 		</tr>
 		<tr>
 			<th rowspan = "3">AuthCode</th>
-			<td align = "center"><input type = "text" name = "authcode" value = ""/></td>
+			<td align = "center"><input type = "text" name = "authcode" value = "authcode"/></td>
 		</tr>
 		<tr>
 			<td align = "center">
@@ -52,9 +52,9 @@
 		</tr>
 		<tr>
 			<td align = "center" colspan = "2">
-				<input type = "button" value = "Submit">
+				<input type = "submit" value = "submit" name = "submit">
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<input type = "button" value = "Register">
+				<input type = "submit" value = "register" name = "register">
 			</td>
 		</tr>
 	</table>
