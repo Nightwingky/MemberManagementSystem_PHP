@@ -6,22 +6,59 @@
 <body>
 
 <?php
-/*
-	$link = mysqli_connect('localhost', 'root', '666796');
-	$db_selected = mysqli_select_db($link, 'php');
-	mysqli_query($link, "set names 'utf8'");
-	$sql = "select * from userinfo";
-
-	$result = mysqli_query($link, $sql);
-	print_r(mysqli_fetch_array($result, MYSQLI_ASSOC));
-	
-	mysqli_query($link, "insert into userinfo(userid, username, gender, birthdate, pwd, question, answer, email, photopath, intro, role, regtime) values('1239997890', 'SamSam', 'male', '1996-10-24', '123456789', 'question', 'answer', 'qky1024@163.com', '123', 'qwe', '1', '1996-10-24 00:00:01')");
-*/
+	session_start();
 
 	if(isset($_POST["register"]))
 	{
 		header("location:register.php");
 		exit();
+	}
+	else if(isset($_POST["submit"]))
+	{
+		$username = $_POST["username"];
+		$password = $_POST["password"];
+		$authcode = $_POST["authcode"];
+
+		$link = mysqli_connect('localhost', 'root', '666796');
+		$db_selected = mysqli_select_db($link, 'php');
+		mysqli_query($link, "set names 'utf8'");
+
+		$sqlStr = "select username, pwd from userinfo";
+		$result = mysqli_query($link, $sqlStr);
+
+		while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+		{
+			$flag = 0;
+			if($username == $row['username'])
+			{
+				$flag = 1;
+				if($password == $row['pwd'])
+				{
+					if($authcode != $_SESSION['authcode'])
+					{
+						header("refresh:3;url = index.php");
+						echo "Wrong Authcode";
+					}
+					else
+					{
+						echo "<h3 align = 'center'>Welcome my friend ".$username."</h3>";
+						break;
+					}
+				}
+				else
+				{
+					header("refresh:3;url = index.php");
+					echo "Wrong Password";
+				}
+			}
+		}
+
+		if($flag == 0)
+		{
+			header("refresh:3;url = register.php");
+			echo "Please <b>REGISTER</b> first";
+		}
+
 	}
 ?>
 

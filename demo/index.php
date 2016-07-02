@@ -6,10 +6,9 @@
 	<style type="text/css">
 		.container
 		{
-			margin:10px auto;
+			margin:20px auto;
 			height:300px;
 			width:400px;
-			border:1px solid red;
 		}
 
 		.table
@@ -33,7 +32,7 @@
 		</tr>
 		<tr>
 			<th>Password</th>
-			<td align = "center"><input type = "pwd" name = "password" placeholder = "password"/></td>
+			<td align = "center"><input type = "password" name = "password"/></td>
 		</tr>
 		<tr>
 			<th rowspan = "3">AuthCode</th>
@@ -53,7 +52,9 @@
 		<tr>
 			<td align = "center" colspan = "2">
 				<input type = "submit" value = "submit" name = "submit">
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;
+				<input type = "reset" value = "reset">
+				&nbsp;&nbsp;
 				<input type = "submit" value = "register" name = "register">
 			</td>
 		</tr>
