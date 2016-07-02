@@ -91,9 +91,15 @@
 		.container
 		{
 			margin:10px auto;
-			border:1px solid black;
 			width:1000px;
-			height:1000px;
+			height:auto;
+		}
+
+		.tableContainer
+		{
+			width:450px;
+			height:auto;
+			margin:10px auto;
 		}
 	</style>
 
@@ -155,6 +161,42 @@
 </div>
 
 <div class = "container">
+	<div class = "tableContainer">
+	<?php
+		$link = mysqli_connect('localhost', 'root', '666796');
+		$db_selected = mysqli_select_db($link, 'php');
+		mysqli_query($link, "set names 'utf8'");
+
+		$sqlStr = "select username, gender, birthdate, email, regtime, role from userinfo";
+		$result = mysqli_query($link, $sqlStr);
+
+		echo "<table border = '1'>";
+		echo "<tr>";
+		echo "<th>username</th>";
+		echo "<th>gender</th>";
+		echo "<th>birthdate</th>";
+		echo "<th>email</th>";
+		echo "<th>regtime</th>";
+		echo "<th>role</th>";
+		echo "</tr>";
+
+		while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+	  	{
+	    	echo "<tr>";
+	    	echo "<td align = 'center'>" . $row['username'] . "</td>";
+	    	echo "<td align = 'center'>" . $row['gender'] . "</td>";
+	    	echo "<td align = 'center'>" . $row['birthdate'] . "</td>";
+	    	echo "<td align = 'center'>" . $row['email'] . "</td>";
+	    	echo "<td align = 'center'>" . $row['regtime'] . "</td>";
+	    	echo "<td align = 'center'>" . $row['role'] . "</td>";
+	    	echo "</tr>";
+	  	}
+
+		echo "</table>";
+
+		mysqli_close($link);
+	?>
+	</div>
 </div>
 
 </body>
