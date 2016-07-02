@@ -91,9 +91,8 @@
 		.container
 		{
 			margin:10px auto;
-			border:1px solid black;
-			width:1000px;
-			height:1000px;
+			width:480px;
+			height:suto;
 		}
 	</style>
 
@@ -155,6 +154,41 @@
 </div>
 
 <div class = "container">
+	<?php
+		$link = mysqli_connect('localhost', 'root', '666796');
+		$db_selected = mysqli_select_db($link, 'php');
+		mysqli_query($link, "set names 'utf8'");
+
+		$sqlStr = "select username, gender, birthdate, regtime from userinfo";
+		$result = mysqli_query($link, $sqlStr);
+
+		echo "<table border = '1'>";
+		echo "<tr>";
+		echo "<th>username</th>";
+		echo "<th>gender</th>";
+		echo "<th>birthdate</th>";
+		echo "<th>regtime</th>";
+		echo "<th>opration</th>";
+		echo "</tr>";
+
+		while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+	  	{
+	    	if($row['username'] != $_SESSION["username"])
+	    	{
+	    		echo "<tr>";
+		    	echo "<td align = 'center'>" . $row['username'] . "</td>";
+		    	echo "<td align = 'center'>" . $row['gender'] . "</td>";
+		    	echo "<td align = 'center'>" . $row['birthdate'] . "</td>";
+		    	echo "<td align = 'center'>" . $row['regtime'] . "</td>";
+		    	echo "<td align = 'center'><a href = 'remove.php?id=".$row['username']."'>remove</a></td>";
+		    	echo "</tr>";
+	    	}
+	  	}
+
+		echo "</table>";
+
+		mysqli_close($link);
+	?>
 </div>
 
 </body>
