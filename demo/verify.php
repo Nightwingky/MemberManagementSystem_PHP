@@ -23,7 +23,7 @@
 		$db_selected = mysqli_select_db($link, 'php');
 		mysqli_query($link, "set names 'utf8'");
 
-		$sqlStr = "select username, pwd from userinfo";
+		$sqlStr = "select username, pwd, role from userinfo";
 		$result = mysqli_query($link, $sqlStr);
 
 		while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
@@ -41,7 +41,16 @@
 					}
 					else
 					{
-						echo "<h3 align = 'center'>Welcome my friend ".$username."</h3>";
+						$role = $row['role'];
+						if($role == 0)
+						{
+							echo "user...";
+						}
+						else if($role == 1)
+						{
+							echo "admin...";
+						}
+						header("location:system.php?username=".$username."&role=".$role);
 						break;
 					}
 				}
